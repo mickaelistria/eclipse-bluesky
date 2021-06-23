@@ -2,9 +2,8 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Node.js for Windows x86_64
 Bundle-SymbolicName: org.eclipse.wildwebdeveloper.embedder.node.win32.x86_64
-Bundle-Version: 0.1.2.qualifier
+Bundle-Version: 0.1.3.qualifier
 Bundle-Vendor: Eclipse Wild Web Developer
 Fragment-Host: org.eclipse.wildwebdeveloper.embedder.node;bundle-version="0.1.0"
 Automatic-Module-Name: org.eclipse.wildwebdeveloper.embedder.node.win32.x86_64
 Eclipse-PlatformFilter: (& (osgi.os=win32) (osgi.ws=win32) (osgi.arch=x86_64))
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
