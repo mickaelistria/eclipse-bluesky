@@ -17,7 +17,7 @@
          point="org.eclipse.ui.editors">
       <editorContentTypeBinding
             contentTypeId="org.eclipse.wildwebdeveloper.parent"
-            editorId="org.eclipse.ui.genericeditor.GenericEditor">
+            editorId="org.eclipse.lsp4e.editor">
       </editorContentTypeBinding>
    </extension>
 
