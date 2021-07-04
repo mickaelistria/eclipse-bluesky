@@ -24,6 +24,7 @@
 		<module>org.eclipse.wildwebdeveloper.embedder.node.linux.x86_64</module>
 		<module>org.eclipse.wildwebdeveloper.embedder.node.linux.aarch64</module>
 		<module>org.eclipse.wildwebdeveloper.embedder.node.macos.x86_64</module>
+		<module>org.eclipse.wildwebdeveloper.embedder.node.macos.aarch64</module>
 		<module>org.eclipse.wildwebdeveloper.embedder.node.win32.x86_64</module>
 		<module>org.eclipse.wildwebdeveloper.embedder.node</module>
 		<module>org.eclipse.wildwebdeveloper</module>

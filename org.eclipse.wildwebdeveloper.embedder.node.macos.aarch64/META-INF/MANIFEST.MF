@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Node.js for Linux AArch64
+Bundle-SymbolicName: org.eclipse.wildwebdeveloper.embedder.node.macos.aarch64
+Bundle-Version: 0.1.2.qualifier
+Bundle-Vendor: Eclipse Wild Web Developer
+Fragment-Host: org.eclipse.wildwebdeveloper.embedder.node;bundle-version="0.1.0"
+Automatic-Module-Name: org.eclipse.wildwebdeveloper.embedder.node.linux
+Eclipse-PlatformFilter: (& (osgi.os=macosx) (osgi.arch=aarch64))
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
