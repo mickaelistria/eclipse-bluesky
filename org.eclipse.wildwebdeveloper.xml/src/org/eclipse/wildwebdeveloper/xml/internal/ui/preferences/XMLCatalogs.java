@@ -31,6 +31,7 @@ import org.eclipse.wildwebdeveloper.xml.internal.Activator;
 
 public class XMLCatalogs {
 
+	private static final String PLATFORM_PLUGIN_PATH = "platform:/plugin/";
 	private static final Comparator<File> FILE_CASE_INSENSITIVE_ORDER = Comparator.comparing(File::getAbsolutePath, String.CASE_INSENSITIVE_ORDER);
 	private static final File SYSTEM_CATALOG = Activator.getDefault().getStateLocation().append("system-catalog.xml").toFile();
 
@@ -62,7 +63,18 @@ public class XMLCatalogs {
 			.forEach(element -> {
 				String namespace = element.getAttribute("systemId");
 				String uri = element.getAttribute("uri");
-				if (!URI.create(uri).isAbsolute()) {
+				if (uri.startsWith(PLATFORM_PLUGIN_PATH)) {
+					// ex : platform:/plugin/org.eclipse.xsd/cache/www.w3.org/2001/xml.xsd
+					int start = PLATFORM_PLUGIN_PATH.length();
+					int end = uri.indexOf("/", start);					
+					String pluginId = uri.substring(start, end);
+					String path = uri.substring(end, uri.length());
+					try {
+						uri = FileLocator.toFileURL(FileLocator.find(Platform.getBundle(pluginId), Path.fromPortableString(path))).toString();
+					} catch (InvalidRegistryObjectException | IOException e) {
+						Activator.getDefault().getLog().log(new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e));
+					}
+				} else if (!URI.create(uri).isAbsolute()) {
 					try {
 						uri = FileLocator.toFileURL(FileLocator.find(Platform.getBundle(element.getContributor().getName()), Path.fromPortableString(uri.toString()))).toString();
 					} catch (InvalidRegistryObjectException | IOException e) {
